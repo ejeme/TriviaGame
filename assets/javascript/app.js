@@ -98,7 +98,7 @@ function dispAns()
 //==================================================================================
     //First question
 
-    if (questionCnt === 1 && isCorrect === false)
+    if (questCnt === 1 && isCorrect === false)
     {
         //Tracks the wrong answers
         wrongCount++;
@@ -124,7 +124,7 @@ function dispAns()
             chooseCheckAnswer();
         }, 3000);
     }
-    else if(questionCnt === 1 && isCorrect === true)
+    else if(questCnt === 1 && isCorrect === true)
     {
         //Tracks the right answers
         corAnswer++;
@@ -153,7 +153,7 @@ function dispAns()
     
 //==================================================================================
     //Second Question
-    else if (questionCnt === 2 && isCorrect === false)
+    else if (questCnt === 2 && isCorrect === false)
     {
         //Tracks the wrong answers
         wrongCount++;
@@ -178,7 +178,7 @@ function dispAns()
         }, 3000); 
 }
 
-    else if(questionCnt === 2 && isCorrect === true)
+    else if(questCnt === 2 && isCorrect === true)
     {
         //Tracks the right answers
         corAnswer++;
@@ -206,7 +206,7 @@ function dispAns()
 
 //==================================================================================
     //Third Question
-    else if(questionCnt === 3 && isCorrect === false)
+    else if(questCnt === 3 && isCorrect === false)
     {
         //Tracks the wrong answers
         wrongCount++;
@@ -231,7 +231,7 @@ function dispAns()
         }, 3000); 
 }
 
-    else if(questionCnt === 3 && isCorrect === true)
+    else if(questCnt === 3 && isCorrect === true)
     {
         //Tracks the right answers
         corAnswer++;
@@ -259,7 +259,7 @@ function dispAns()
 
 //==================================================================================
     //Fourth Question
-    else if(questionCnt === 4 && isCorrect === false)
+    else if(questCnt === 4 && isCorrect === false)
     {
         //Tracks the wrong answers
         wrongCount++;
@@ -281,7 +281,7 @@ function dispAns()
         }, 3000); 
 }
 
-    else if(questionCnt === 4 && isCorrect === true)
+    else if(questCnt === 4 && isCorrect === true)
     {
         //Tracks the right answers
         corAnswer++;
@@ -350,6 +350,27 @@ function quest4()
     '<button class="answerVal" value=0 btn-lg>' + answers.answers4[2] + '</button>' +
     '<button class="answerVal" value=0 btn-lg>' + answers.answers4[3] + '</button>'
 );
+}
+
+function chooseCheckAnswer()
+{
+    $('button').on('click', function(){
+        var checkRightAnswer = $(this).attr('value');
+        console.log(checkRightAnswer);
+        clearInterval(interval);
+        if (checkRightAnswer === 1)
+        {
+            console.log('Correct');
+            $('button').remove();
+            $('.questionInput').remove();
+        }
+        else
+        {
+            $('button').remove();
+            $('.questionInput').remove();      
+            dispAns();    
+        }
+    })
 }
 
 function endGame()
